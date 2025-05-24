@@ -8,8 +8,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Star, ShoppingCart, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { useCart } from "../../context/cart-context"
-import { ReviewForm } from "../../components/review-form"
-import { ReviewList } from "../../components/review-list"
 
 const products = [
   {
@@ -17,7 +15,7 @@ const products = [
     name: "Classic Cola Fizz",
     price: 2.99,
     originalPrice: 3.49,
-    image: "/placeholder.svg?height=400&width=400&text=Cola+Fizz&bg=8B4513&color=white",
+    image: "/placeholder.svg?height=400&width=400&text=Classic+Cola+Fizz+🥤&bg=654321&color=white",
     rating: 4.5,
     reviews: 128,
     discount: "15% OFF",
@@ -37,7 +35,7 @@ const products = [
     name: "Tropical Burst",
     price: 3.29,
     originalPrice: 3.79,
-    image: "/placeholder.svg?height=400&width=400&text=Tropical+Burst&bg=FF6B35&color=white",
+    image: "/placeholder.svg?height=400&width=400&text=Tropical+Burst+🌺🥭&bg=FF8C00&color=white",
     rating: 4.8,
     reviews: 95,
     discount: "13% OFF",
@@ -57,7 +55,7 @@ const products = [
     name: "Berry Blast",
     price: 3.19,
     originalPrice: 3.69,
-    image: "/placeholder.svg?height=400&width=400&text=Berry+Blast&bg=8E44AD&color=white",
+    image: "/placeholder.svg?height=400&width=400&text=Berry+Blast+🫐🍓&bg=8B008B&color=white",
     rating: 4.6,
     reviews: 87,
     discount: "14% OFF",
@@ -77,7 +75,7 @@ const products = [
     name: "Lemon Lime Zing",
     price: 2.89,
     originalPrice: 3.29,
-    image: "/placeholder.svg?height=400&width=400&text=Lemon+Lime&bg=F1C40F&color=black",
+    image: "/placeholder.svg?height=400&width=400&text=Lemon+Lime+Zing+🍋🟢&bg=FFD700&color=black",
     rating: 4.4,
     reviews: 156,
     discount: "12% OFF",
@@ -97,7 +95,7 @@ const products = [
     name: "Orange Crush",
     price: 3.09,
     originalPrice: 3.59,
-    image: "/placeholder.svg?height=400&width=400&text=Orange+Crush&bg=E67E22&color=white",
+    image: "/placeholder.svg?height=400&width=400&text=Orange+Crush+🍊&bg=FF6347&color=white",
     rating: 4.7,
     reviews: 203,
     discount: "14% OFF",
@@ -116,7 +114,7 @@ const products = [
     name: "Grape Explosion",
     price: 3.39,
     originalPrice: 3.89,
-    image: "/placeholder.svg?height=400&width=400&text=Grape+Explosion&bg=9B59B6&color=white",
+    image: "/placeholder.svg?height=400&width=400&text=Grape+Explosion+🍇&bg=800080&color=white",
     rating: 4.3,
     reviews: 74,
     discount: "13% OFF",
@@ -247,7 +245,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
         <Card className="mb-8">
           <CardHeader>
             <div className="flex space-x-6">
-              {["description", "ingredients", "nutrition", "reviews"].map((tab) => (
+              {["description", "ingredients", "nutrition"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -304,13 +302,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-
-            {activeTab === "reviews" && (
-              <div>
-                <ReviewForm productId={product.id} />
-                <ReviewList productId={product.id} />
               </div>
             )}
           </CardContent>
