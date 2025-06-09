@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Star, ShoppingCart, Search, Filter } from "lucide-react"
 import { useCart } from "../context/cart-context"
+import Link from "next/link"
 
 const products = [
   {
@@ -15,7 +16,7 @@ const products = [
     name: "Classic Cola Fizz",
     price: 2.99,
     originalPrice: 3.49,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Classic+Cola+Fizz+🥤&bg=654321&color=white",
     rating: 4.5,
     reviews: 128,
     discount: "15% OFF",
@@ -27,7 +28,7 @@ const products = [
     name: "Tropical Burst",
     price: 3.29,
     originalPrice: 3.79,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Tropical+Burst+🌺🥭&bg=FF8C00&color=white",
     rating: 4.8,
     reviews: 95,
     discount: "13% OFF",
@@ -39,7 +40,7 @@ const products = [
     name: "Berry Blast",
     price: 3.19,
     originalPrice: 3.69,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Berry+Blast+🫐🍓&bg=8B008B&color=white",
     rating: 4.6,
     reviews: 87,
     discount: "14% OFF",
@@ -51,7 +52,7 @@ const products = [
     name: "Lemon Lime Zing",
     price: 2.89,
     originalPrice: 3.29,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Lemon+Lime+Zing+🍋🟢&bg=FFD700&color=black",
     rating: 4.4,
     reviews: 156,
     discount: "12% OFF",
@@ -63,7 +64,7 @@ const products = [
     name: "Orange Crush",
     price: 3.09,
     originalPrice: 3.59,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Orange+Crush+🍊&bg=FF6347&color=white",
     rating: 4.7,
     reviews: 203,
     discount: "14% OFF",
@@ -75,7 +76,7 @@ const products = [
     name: "Grape Explosion",
     price: 3.39,
     originalPrice: 3.89,
-    image: "/placeholder.svg?height=250&width=250",
+    image: "/placeholder.svg?height=250&width=250&text=Grape+Explosion+🍇&bg=800080&color=white",
     rating: 4.3,
     reviews: 74,
     discount: "13% OFF",
@@ -201,7 +202,9 @@ export default function ProductsPage() {
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Add to Cart
                   </Button>
-                  <Button className="flex-1 bg-blue-600 hover:bg-blue-700">Buy Now</Button>
+                  <Link href={`/products/${product.id}`} className="flex-1">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700">View Details</Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

@@ -12,7 +12,7 @@ const featuredProducts = [
     name: "Classic Cola Fizz",
     price: 2.99,
     originalPrice: 3.49,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholder.svg?height=200&width=200&text=Classic+Cola+Fizz+🥤&bg=654321&color=white",
     rating: 4.5,
     reviews: 128,
     discount: "15% OFF",
@@ -22,7 +22,7 @@ const featuredProducts = [
     name: "Tropical Burst",
     price: 3.29,
     originalPrice: 3.79,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholder.svg?height=200&width=200&text=Tropical+Burst+🌺🥭&bg=FF8C00&color=white",
     rating: 4.8,
     reviews: 95,
     discount: "13% OFF",
@@ -32,7 +32,7 @@ const featuredProducts = [
     name: "Berry Blast",
     price: 3.19,
     originalPrice: 3.69,
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/placeholder.svg?height=200&width=200&text=Berry+Blast+🫐🍓&bg=8B008B&color=white",
     rating: 4.6,
     reviews: 87,
     discount: "14% OFF",
@@ -171,7 +171,7 @@ export default function HomePage() {
                       <ShoppingCart className="w-4 h-4 mr-2" />
                       Add to Cart
                     </Button>
-                    <Link href="/products" className="flex-1">
+                    <Link href={`/products/${product.id}`} className="flex-1">
                       <Button className="w-full bg-blue-600 hover:bg-blue-700">Buy Now</Button>
                     </Link>
                   </div>
